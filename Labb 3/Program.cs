@@ -4,27 +4,35 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("***************************************************************************\nHello and welcome to the TemperatureCalculator!\n***************************************************************************");
+            Console.WriteLine("***************************************************************************\nHello and welcome to the TemperatureCalculator!");
 
             while (true) {
 
                 Console.WriteLine("***************************************************************************\n\nType 1 if you want to continiue \nType 2 if you want to exit\n");
                 Console.Write("Your input: ");
                 string UserInput = Console.ReadLine();
-                Console.WriteLine("\n***************************************************************************\n");
+                Console.WriteLine("\n***************************************************************************");
 
-                switch(UserInput)
+                switch (UserInput) {
+
+                    
+                    case "1": //Huvudkoden
+                    {
 
 
-                    case "1"{
                         break;
                     }
-                case "2"{
-                        Console.WriteLine("Thank you for using this program, hope to see you again soon");
+
+
+                    case "2": //Avslut
+                    {
+                        Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
                         return;
                     }
                 }
-            } 
-        }
+
+            }
+        } 
+        
     }
 }
