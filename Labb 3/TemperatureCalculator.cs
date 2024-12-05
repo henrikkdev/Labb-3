@@ -8,5 +8,31 @@ namespace Labb_3
 {
     internal class TemperatureCalculator
     {
+        //privata fält
+        private string mayTemperature;
+
+        //konstruktor
+        TemperatureCalculator(string mayTemperature)
+        {
+            this.mayTemperature = mayTemperature;
+
+            GenerateTemperature();
+        }
+
+        //Metod för att skapa random temp
+        private void GenerateTemperature()
+        {
+            Random random = new Random();
+            string mayTemperature = random.Next(2, 20).ToString();
+            mayTemperature = mayTemperature.ToUpper();
+            this.mayTemperature = mayTemperature;
+        }
+
+        //Metod för att hämta temperatur
+        public string GenerateMayTemperature()
+        {
+            GenerateTemperature();
+            return this.mayTemperature;
+        }
     }
 }
