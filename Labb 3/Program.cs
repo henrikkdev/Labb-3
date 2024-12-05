@@ -10,17 +10,32 @@
 
                 Console.WriteLine("***************************************************************************\n\nType 1 if you want to continiue \nType 2 if you want to exit\n");
                 Console.Write("Your input: ");
-                string UserInput = Console.ReadLine();
+                string UserInputStart = Console.ReadLine();
                 Console.WriteLine("\n***************************************************************************");
 
-                switch (UserInput) {
+                switch (UserInputStart) {
 
                     
                     case "1": //Huvudkoden
                     {
+                            Console.WriteLine("***************************************************************************\n\nType 1 if you want to continiue \nType 2 if you want to exit\n");
 
+                            switch (UserInputMain)
+                            {
+                                case "1": { }
+                                
+                                case "2": { }
 
-                        break;
+                                case "3": { }
+
+                                case "4": { }
+
+                                case "5": { }
+
+                                case "6": { }
+
+                                case "7": { }
+                            }
                     }
 
 
