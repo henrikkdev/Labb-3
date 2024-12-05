@@ -17,7 +17,7 @@
 
 
                     case "1"{
-
+                        break;
                     }
                 case "2"{
                         Console.WriteLine("Thank you for using this program, hope to see you again soon");
