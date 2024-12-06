@@ -36,6 +36,7 @@
                                     Console.WriteLine("***************************************************************************\nYou chose to view the temperature for each day in a list.\nNow you will get three options for how you want to see this list:\n1. Date\n2. Warmest to coldest\n3. Coldest to warmest\n4. Exit");
                                     string UserInputCase1 = Console.ReadLine();
                                     
+                                    
                                     bool returnToMainMenu = false;
                                     while (!returnToMainMenu) 
                                     {
