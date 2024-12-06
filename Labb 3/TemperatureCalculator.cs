@@ -12,7 +12,7 @@ namespace Labb_3
         private string mayTemperature;
 
         //konstruktor
-        TemperatureCalculator(string mayTemperature)
+        public TemperatureCalculator(string mayTemperature)
         {
             this.mayTemperature = mayTemperature;
 
@@ -32,7 +32,7 @@ namespace Labb_3
         public string GenerateMayTemperature()
         {
             GenerateTemperature();
-            return this.mayTemperature;
+            return $"{mayTemperature}";
         }
     }
 }
