@@ -12,7 +12,7 @@ namespace Labb_3
 
 
 
-        public static void TemperatureAnalyzer()
+        public double[] TemperatureAnalyzer()
         {
             Random random = new Random();
 
@@ -20,17 +20,8 @@ namespace Labb_3
             {
                 temperatures[i] = random.Next(2, 20);//genererar tempraturer mellan 2 och 20 
             }
-            
+            return temperatures;
         }
-
-        public string TemperatureList()
-        {
-            Console.WriteLine("Temps in may");
-            for (int i = 0; i < temperatures.Length; i++)
-            {
-                Console.WriteLine($"Dag {i + 1}: {temperatures[i]}°C");
-            }
-            return $"{temperatures}";
-        }
+        
     }
 }

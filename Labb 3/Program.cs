@@ -44,9 +44,13 @@
                                         {
                                             case "1":
                                             {
+                                                Console.Clear();
                                                 TemperatureCalculator Tmpcalc = new TemperatureCalculator();
-                                                string templist = Tmpcalc.TemperatureList();
-                                                Console.WriteLine(templist.ToString());
+                                                double[] templist = Tmpcalc.TemperatureAnalyzer();
+                                                for (int i = 0; i < templist.Length; i++)
+                                                {
+                                                    Console.WriteLine($"Dag {i + 1}: {templist[i]}°C");
+                                                }
                                                 return;
                                             }
                                             
