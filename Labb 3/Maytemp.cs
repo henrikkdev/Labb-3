@@ -8,13 +8,13 @@ namespace Labb_3
 {
     internal class Maytemp
     {
-        internal class TemperatureCalculator
-        {
+       
+       
             //privata fält
             private string mayTemperature;
 
             //konstruktor
-            public TemperatureCalculator(string mayTemperature)
+            public Maytemp(string mayTemperature)
             {
                 this.mayTemperature = mayTemperature;
 
@@ -36,7 +36,7 @@ namespace Labb_3
                 GenerateTemperature();
                 return $"{mayTemperature}";
             }
-        }
     }
 }
+
 

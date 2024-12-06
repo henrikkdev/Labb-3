@@ -3,11 +3,8 @@
     internal class Program
     {
         static void Main(string[] args)
-        { 
-           TemperatureCalculator tempCalculator = new TemperatureCalculator("13");
-           string temperature = tempCalculator.GenerateMayTemperature();
-           Console.WriteLine(temperature);
-           Console.ReadLine();
+        {
+
             
             Console.WriteLine("***************************************************************************\nHello and welcome to the TemperatureCalculator!");
 
@@ -54,7 +51,11 @@
                                             
                                             case "2":
                                             {
-                                                Console.WriteLine();
+                                                            Maytemp tempCalculator = new Maytemp("12");
+                                                            string temperature = tempCalculator.GenerateMayTemperature();
+                                                            Console.WriteLine(temperature);
+                                                            Console.ReadLine();
+                                                            Console.WriteLine();
                                                 break;
                                             }
 
@@ -66,7 +67,7 @@
                                             
                                             case "4": 
                                             {
-                                                Console.WriteLine("You will now return to mainmenu");
+                                                Console.WriteLine("You will now return to the main menu");
                                                 returnToMainMenu=true; 
                                                 break;          
                                             }
