@@ -41,8 +41,10 @@
                                         {
                                             case "1":
                                             {
-                                                Console.WriteLine();
-                                                break;
+                                                TemperatureCalculator Tmpcalc = new TemperatureCalculator();
+                                                string templist = Tmpcalc.TemperatureList();
+                                                Console.WriteLine(templist.ToString());
+                                                return;
                                             }
                                             
                                             case "2":

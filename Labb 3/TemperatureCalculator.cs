@@ -8,31 +8,29 @@ namespace Labb_3
 {
     internal class TemperatureCalculator
     {
-        //privata fält
-        private string mayTemperature;
+        private static double[] temperatures = new double[31];//array för alla dagar i maj 
 
-        //konstruktor
-        TemperatureCalculator(string mayTemperature)
-        {
-            this.mayTemperature = mayTemperature;
 
-            GenerateTemperature();
-        }
 
-        //Metod för att skapa random temp
-        private void GenerateTemperature()
+        public static void TemperatureAnalyzer()
         {
             Random random = new Random();
-            string mayTemperature = random.Next(2, 20).ToString();
-            mayTemperature = mayTemperature.ToUpper();
-            this.mayTemperature = mayTemperature;
+
+            for (int i = 0; i < temperatures.Length; i++)
+            {
+                temperatures[i] = random.Next(2, 20);//genererar tempraturer mellan 2 och 20 
+            }
+            
         }
 
-        //Metod för att hämta temperatur
-        public string GenerateMayTemperature()
+        public string TemperatureList()
         {
-            GenerateTemperature();
-            return this.mayTemperature;
+            Console.WriteLine("Temps in may");
+            for (int i = 0; i < temperatures.Length; i++)
+            {
+                Console.WriteLine($"Dag {i + 1}: {temperatures[i]}°C");
+            }
+            return $"{temperatures}";
         }
     }
 }
