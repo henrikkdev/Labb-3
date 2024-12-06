@@ -18,7 +18,7 @@
                     
                     case "1": //Huvudkoden
                     {
-
+                            TemperatureCalculator mayFirst = new(");
 
                         break;
                     }
