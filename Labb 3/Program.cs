@@ -49,7 +49,7 @@
                                                 double[] templist = Tmpcalc.TemperatureAnalyzer();
                                                 for (int i = 0; i < templist.Length; i++)
                                                 {
-                                                    Console.WriteLine($"Dag {i + 1}: {templist[i]}°C");
+                                                    Console.WriteLine($"Day {i + 1}: {templist[i]}°C");
                                                 }
                                                 return;
                                             }
@@ -66,7 +66,15 @@
 
                                             case "3":
                                             {
-                                                Console.WriteLine();
+                                                Console.Clear();
+                                                TemperatureCalculator Tmpcalc = new TemperatureCalculator();
+                                                            double[] templist = Tmpcalc.TemperatureAnalyzer();
+                                                            var sortedTemps = templist.OrderByDescending(t => t).ToArray();
+                                                            for (int i = 0;i < sortedTemps.Length; i++)
+                                                            {
+                                                            Console.WriteLine($"Day {i + 1}: {sortedTemps[i]}°C"); 
+                                                            }
+                                                            
                                                 return;
                                             }
                                             
