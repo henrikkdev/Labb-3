@@ -15,7 +15,8 @@
                 Console.Write("Your input: ");
                 string UserInputStart = Console.ReadLine();
                 Console.WriteLine("\n***************************************************************************");
-
+                while (true)  
+            {
                 switch (UserInputStart)
                 {
                     case "1":
@@ -75,39 +76,45 @@
                                                             return;
                                                         }
 
-                                                    case "3":
-                                                        {
-                                                            Console.WriteLine();
-                                                            return;
-                                                        }
-
-                                                    case "4":
-                                                        {
-                                                            Console.WriteLine("You will now return to the main menu");
-                                                            returnToMainMenu = true;
-                                                            break;
-                                                        }
-
-                                                    default:
-                                                        {
-                                                            Console.Clear();
-                                                            Console.WriteLine("Your input was invalid try again but with a nuber\n");
-                                                            return; //går tillbaka till menyn om input är fel
-                                                        }
-
-
-                                                }
+                                            case "3":
+                                            {
+                                                Console.Clear();
+                                                TemperatureCalculator Tmpcalc = new TemperatureCalculator();
+                                                            double[] templist = Tmpcalc.TemperatureAnalyzer();
+                                                            var sortedTemps = templist.OrderByDescending(t => t).ToArray();
+                                                            for (int i = 0;i < sortedTemps.Length; i++)
+                                                            {
+                                                            Console.WriteLine($"Day {i + 1}: {sortedTemps[i]}°C"); 
+                                                            }
+                                                            
+                                                return;
                                             }
-                                            break;//Breakar main 
+                                            
+                                            case "4": 
+                                            {
+                                                Console.WriteLine("You will now return to the main menu");
+                                                returnToMainMenu=true; 
+                                                break;          
+                                            }
+                                            
+                                            default:
+                                            {
+                                                Console.Clear();
+                                                Console.WriteLine("Your input was invalid try again but with nmbr\n");
+                                                return; //går tillbaka till menyn om input är fel
+                                            }
+                                              
+                                           
                                         }
+                                    }
+                                break;//Breakar main 
+                                }
 
-                                    /*case "2": // Lista. Alternativ att se medelvärde och medianvärde
-                                        {
-                                        switch()
-                                           Console.WriteLine("");
-
-                                           break;
-                                    }*/
+                               /* case "2": // Lista. Alternativ att se medelvärde och medianvärde
+                                {
+                                Console.WriteLine($"Medeltemp: {analyzer.GetAverageTemperature()}");
+                                break;
+                                }*/
 
                                     case "3":
                                         {
