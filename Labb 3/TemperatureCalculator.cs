@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Labb_3
 {
+
     internal class TemperatureCalculator
     {
         private static double[] temperatures = new double[31];//array för alla dagar i maj 
@@ -14,6 +15,7 @@ namespace Labb_3
 
         public double[] TemperatureAnalyzer()
         {
+
             Random random = new Random();
 
             for (int i = 0; i < temperatures.Length; i++)

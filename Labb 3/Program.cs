@@ -8,14 +8,14 @@
             
             Console.WriteLine("***************************************************************************\nHello and welcome to the TemperatureCalculator!");
 
-            while (true)  
-            {
+
 
                 Console.WriteLine("***************************************************************************\n\nType 1 if you want to continiue \nType 2 if you want to exit\n");
                 Console.Write("Your input: ");
                 string UserInputStart = Console.ReadLine();
                 Console.WriteLine("\n***************************************************************************");
-
+                while (true)  
+            {
                 switch (UserInputStart)
                 {
                     case "1":
@@ -98,12 +98,10 @@
                                 break;//Breakar main 
                                 }
 
-                                /*case "2": // Lista. Alternativ att se medelvärde och medianvärde
-                                    {
-                                    switch()
-                                       Console.WriteLine("");
-                                    
-                                       break;
+                               /* case "2": // Lista. Alternativ att se medelvärde och medianvärde
+                                {
+                                Console.WriteLine($"Medeltemp: {analyzer.GetAverageTemperature()}");
+                                break;
                                 }*/
 
                                 case "3":
@@ -161,6 +159,7 @@
                 }
 
             }
+
         } 
         
     }
