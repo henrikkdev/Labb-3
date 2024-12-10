@@ -1,41 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Labb_3
+﻿namespace Labb_3
 {
     internal class Maytemp
     {
-       
-       
-            //privata fält
-            private string mayTemperature;
 
-            //konstruktor
-            public Maytemp(string mayTemperature)
+
+        //privata fält
+        private static double[] mayTemperature = new double[30];
+
+        //konstruktor
+        //    public Maytemp(string mayTemperature)
+        //{
+        //    this.mayTemperature = mayTemperature;
+
+        //    GenerateTemperature();
+        //}
+
+        //Metod för att skapa random temp
+        public Maytemp()
+        {
+            /* Random random = new Random();
+             string mayTemperature = random.Next(2, 20).ToString();
+             mayTemperature = mayTemperature.ToUpper();
+             this.mayTemperature = mayTemperature;
+            */
+            Random random = new Random();
+            for (int i = 0; i < mayTemperature.Length; i++)
             {
-                this.mayTemperature = mayTemperature;
-
-                GenerateTemperature();
+                mayTemperature[i] = random.Next(2, 20);
             }
 
-            //Metod för att skapa random temp
-            private void GenerateTemperature()
+        }
+
+        //Metod för att hämta temperatur
+        public void GenerateMayTemperature()
+        {
+
+            for (int i = 0; i < mayTemperature.Length; i++)
             {
-                Random random = new Random();
-                string mayTemperature = random.Next(2, 20).ToString();
-                mayTemperature = mayTemperature.ToUpper();
-                this.mayTemperature = mayTemperature;
+                Console.WriteLine($"Dag {i + 1}: {mayTemperature[i]}°C");
             }
 
-            //Metod för att hämta temperatur
-            public string GenerateMayTemperature()
-            {
-                GenerateTemperature();
-                return $"{mayTemperature}";
-            }
+
+        }
     }
 }
 

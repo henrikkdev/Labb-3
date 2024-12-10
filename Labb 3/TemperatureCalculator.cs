@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Labb_3
+﻿namespace Labb_3
 {
     internal class TemperatureCalculator
     {
@@ -20,7 +14,7 @@ namespace Labb_3
             {
                 temperatures[i] = random.Next(2, 20);//genererar tempraturer mellan 2 och 20 
             }
-            
+
         }
 
         public string TemperatureList()

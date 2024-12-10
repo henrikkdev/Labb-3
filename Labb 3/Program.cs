@@ -4,14 +4,14 @@
     {
         static void Main(string[] args)
         {
-
-            
             Console.WriteLine("***************************************************************************\nHello and welcome to the TemperatureCalculator!");
 
-            while (true)  
+            while (true)
             {
 
-                Console.WriteLine("***************************************************************************\n\nType 1 if you want to continiue \nType 2 if you want to exit\n");
+                Console.WriteLine("***************************************************************************\n\n" +
+                    "Type 1 if you want to continue \n" +
+                    "Type 2 if you want to exit\n");
                 Console.Write("Your input: ");
                 string UserInputStart = Console.ReadLine();
                 Console.WriteLine("\n***************************************************************************");
@@ -21,135 +21,150 @@
                     case "1":
                         Console.Clear();//rensa consolen  
 
-                        while (true) 
+                        while (true)
                         {
                             {
                                 Console.Clear();
-                                Console.Write($"***************************************************************************\nChoose an option from the menu:\n1. Display temperatures for all days\n2. Display average and median values\n3. Find the hottest and coldest day (including date)\n4. Show days when the temperature exceeds a threshold\n5. Show today's temperature as well as the day before and after\n6. Show the most frequently occurring temperature in May\n7. Exit the program\n***************************************************************************\nPut your input here:");
+                                Console.Write($"***************************************************************************\n" +
+                                    $"Choose an option from the menu:\n" +
+                                    $"1. Display temperatures for all days\n" +
+                                    $"2. Display average and median values\n" +
+                                    $"3. Find the hottest and coldest day (including date)\n" +
+                                    $"4. Show days when the temperature exceeds a threshold\n" +
+                                    $"5. Show today's temperature as well as the day before and after\n" +
+                                    $"6. Show the most frequently occurring temperature in May\n" +
+                                    $"7. Exit the program\n" +
+                                    $"***************************************************************************\n" +
+                                    $"Put your input here:");
                                 string UserInputMain = Console.ReadLine();
 
-                            switch (UserInputMain)
-                            {
-                                case "1": //lista
+                                switch (UserInputMain)
                                 {
-                                    Console.Clear();
-                                    Console.WriteLine("***************************************************************************\nYou chose to view the temperature for each day in a list.\nNow you will get three options for how you want to see this list:\n1. Date\n2. Warmest to coldest\n3. Coldest to warmest\n4. Exit");
-                                    string UserInputCase1 = Console.ReadLine();
-                                    
-                                    
-                                    bool returnToMainMenu = false;
-                                    while (!returnToMainMenu) 
-                                    {
-                                        switch (UserInputCase1)
+                                    case "1": //lista
                                         {
-                                            case "1":
+                                            Console.Clear();
+                                            Console.WriteLine("***************************************************************************\n" +
+                                                "You chose to view the temperature for each day in a list.\n" +
+                                                "Now you will get three options for how you want to see this list:\n" +
+                                                "1. Date\n" +
+                                                "2. Warmest to coldest\n" +
+                                                "3. Coldest to warmest\n" +
+                                                "4. Exit");
+                                            string UserInputCase1 = Console.ReadLine();
+
+
+                                            bool returnToMainMenu = false;
+                                            while (!returnToMainMenu)
                                             {
-                                                TemperatureCalculator Tmpcalc = new TemperatureCalculator();
-                                                string templist = Tmpcalc.TemperatureList();
-                                                Console.WriteLine(templist.ToString());
-                                                return;
-                                            }
-                                            
-                                            case "2":
-                                            {
-                                                            Maytemp tempCalculator = new Maytemp("12");
-                                                            string temperature = tempCalculator.GenerateMayTemperature();
-                                                            Console.WriteLine(temperature);
-                                                            Console.ReadLine();
+                                                switch (UserInputCase1)
+                                                {
+                                                    case "1":
+                                                        {
+                                                            TemperatureCalculator Tmpcalc = new TemperatureCalculator();
+                                                            string templist = Tmpcalc.TemperatureList();
+                                                            Console.WriteLine(templist.ToString());
+                                                            return;
+                                                        }
+
+                                                    case "2":
+                                                        {
+
+                                                            // Här ska vi ha ett alternativ att kunna se koden i 
+                                                            Maytemp tempCalculator = new Maytemp();
+                                                            tempCalculator.GenerateMayTemperature();
+                                                            return;
+                                                        }
+
+                                                    case "3":
+                                                        {
                                                             Console.WriteLine();
-                                                break;
-                                            }
+                                                            return;
+                                                        }
 
-                                            case "3":
-                                            {
-                                                Console.WriteLine();
-                                                return;
+                                                    case "4":
+                                                        {
+                                                            Console.WriteLine("You will now return to the main menu");
+                                                            returnToMainMenu = true;
+                                                            break;
+                                                        }
+
+                                                    default:
+                                                        {
+                                                            Console.Clear();
+                                                            Console.WriteLine("Your input was invalid try again but with a nuber\n");
+                                                            return; //går tillbaka till menyn om input är fel
+                                                        }
+
+
+                                                }
                                             }
-                                            
-                                            case "4": 
-                                            {
-                                                Console.WriteLine("You will now return to the main menu");
-                                                returnToMainMenu=true; 
-                                                break;          
-                                            }
-                                            
-                                            default:
-                                            {
-                                                Console.Clear();
-                                                Console.WriteLine("Your input was invalid try again but with nmbr\n");
-                                                return; //går tillbaka till menyn om input är fel
-                                            }
-                                              
-                                           
+                                            break;//Breakar main 
                                         }
-                                    }
-                                break;//Breakar main 
-                                }
 
-                                /*case "2": // Lista. Alternativ att se medelvärde och medianvärde
-                                    {
-                                    switch()
-                                       Console.WriteLine("");
-                                    
-                                       break;
-                                }*/
+                                    /*case "2": // Lista. Alternativ att se medelvärde och medianvärde
+                                        {
+                                        switch()
+                                           Console.WriteLine("");
 
-                                case "3":
-                                {
-                                    Console.WriteLine("");
-                                    break;
-                                }
+                                           break;
+                                    }*/
 
-                                case "4":
-                                {
-                                    Console.WriteLine("");
-                                    break;
-                                }
+                                    case "3":
+                                        {
+                                            Console.WriteLine("");
+                                            break;
+                                        }
 
-                                case "5":
-                                {
-                                    Console.WriteLine("");
-                                    break;
-                                }
+                                    case "4":
+                                        {
+                                            Console.WriteLine("");
+                                            break;
+                                        }
 
-                                case "6":
-                                {
-                                    Console.WriteLine("");
-                                    break;
-                                }
+                                    case "5":
+                                        {
+                                            Console.WriteLine("");
+                                            break;
+                                        }
 
-                                case "7":
-                                {
-                                    Console.WriteLine("\n***************************************************************************\nThank you for using this program, hope to see you again soon\n***************************************************************************");
-                                    return; //avslutar huvudmenyn
+                                    case "6":
+                                        {
+                                            Console.WriteLine("");
+                                            break;
+                                        }
+
+                                    case "7":
+                                        {
+                                            Console.WriteLine("\n***************************************************************************\nThank you for using this program, hope to see you again soon\n***************************************************************************");
+                                            return; //avslutar huvudmenyn
+                                        }
+
+                                    default:
+                                        {
+                                            Console.Clear();
+                                            Console.WriteLine("Your input was invalid try again but with nmbr\n");
+                                            break; //går tillbaka till huvudmenyn om input är fel
+                                        }
+
                                 }
-                               
-                                default:
-                                {
-                                    Console.Clear();
-                                    Console.WriteLine("Your input was invalid try again but with nmbr\n");
-                                    break; //går tillbaka till huvudmenyn om input är fel
-                                }
-                                       
                             }
                         }
-                    } 
-                    
-                case "2": //Avslut
-                    {
-                        Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
-                        return;
-                    }
-                    
-                default:
-                    {
-                       Console.WriteLine("Your input was invalid try again but with nmbr");
-                       break;
-                    }
+
+                    case "2": //Avslut
+                        {
+                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
+                            return;
+                        }
+
+                    default:
+                        {
+                            Console.WriteLine("Your input was invalid try again but with nmbr");
+                            break;
+                        }
                 }
 
             }
-        } 
-        
+        }
+
     }
 }
