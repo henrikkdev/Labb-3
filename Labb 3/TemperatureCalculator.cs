@@ -28,7 +28,15 @@ namespace Labb_3
                  Console.WriteLine($"day {i + 1}: {temperatures[i]}°C");
              }
          }
-
-
+        //medeltemp
+        public double GetAverageTemperature()
+        {
+            return temperatures.Average();
+        }
+        //Medeltemp
+        public void PrintAverageTemperature()
+        {
+            Console.WriteLine($"Medeltemperatur: {GetAverageTemperature()}°C");
+        }
      }
 }

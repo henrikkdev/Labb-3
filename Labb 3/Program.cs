@@ -8,6 +8,12 @@
 
             //Temp för varje dag.
             analyzer.Pintdateandtemp();
+
+            //Medeltemp
+            analyzer.PrintAverageTemperature();
+        
+        
+        
         }
         
     }
