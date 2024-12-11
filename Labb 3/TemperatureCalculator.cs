@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Labb_3
 {
-    class TempertureAnalyzer
+    class TemperatureCalculator
     {
         //array för varje dag i maj
         private static double[] temperatures = new double[31];
 
-        public TempertureAnalyzer()
+        public TemperatureCalculator()
         {
             Random random = new Random();
 
@@ -33,8 +33,9 @@ namespace Labb_3
 
         //medeltemp
         public double GetAverageTemperature()
-        {
+        { 
             return temperatures.Average();
+            
         }
         public void PrintAverageTemperature()
         {
