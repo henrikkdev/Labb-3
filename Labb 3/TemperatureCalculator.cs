@@ -1,37 +1,83 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Labb_3
 {
-    internal class TemperatureCalculator
+    class TempertureAnalyzer
     {
-        private static double[] temperatures = new double[31];//array för alla dagar i maj 
-        private const string FilePath = "temperatures.txt";
+        //array för varje dag i maj
+        private static double[] temperatures = new double[31];
 
-
-
-        public TemperatureCalculator()
+        public TempertureAnalyzer()
         {
             Random random = new Random();
 
             for (int i = 0; i < temperatures.Length; i++)
             {
-                temperatures[i] = random.Next(2, 20);//genererar tempraturer mellan 2 och 20 
+                temperatures[i] = random.Next(5, 20);
             }
-            
         }
 
-        public string TemperatureList()
+        public void Printdateandtemp()
         {
-            Console.WriteLine("Temps in may");
+            //printar värmen för varje dag 
             for (int i = 0; i < temperatures.Length; i++)
             {
-                Console.WriteLine($"Dag {i + 1}: {temperatures[i]}°C");
+                Console.WriteLine($"day {i + 1}: {temperatures[i]}°C");
             }
-            return $"{temperatures}";
         }
+
+        //medeltemp
+        public double GetAverageTemperature()
+        {
+            return temperatures.Average();
+        }
+        public void PrintAverageTemperature()
+        {
+            Console.WriteLine($"\nMedeltemperatur: {GetAverageTemperature()}°C");
+        }
+
+        //högsta temp och dagen det skedde
+        public void GetMaxTemp()
+        {
+            double maxTemp = temperatures.Max();
+            int day = Array.IndexOf(temperatures, maxTemp) + 1;
+            Console.WriteLine($"\nhögsta temp: {maxTemp}°C på dag {day}");
+        }
+        
+        //mintemp
+        public void GetMinTemperature()
+        {
+            double minTemp = temperatures.Min();
+            int day = Array.IndexOf(temperatures, minTemp) + 1;
+            Console.WriteLine($"\nminsta temp: {minTemp}°C på dag {day}");
+        }
+        
+        //median
+        public double GetMedianTemp()
+        {
+            var sortedTemps = temperatures.OrderBy(t => t).ToArray();
+            int middleIndex = sortedTemps.Length / 2;
+
+            if (sortedTemps.Length % 2==0)
+            {
+                return (sortedTemps[middleIndex - 1] + sortedTemps[middleIndex]) / 2;
+            }
+            else
+            {
+                return (sortedTemps[middleIndex]);
+            }
+        }
+        public void PrintMedianTemp()
+        {
+            Console.WriteLine($"\nMedian temp: {GetMedianTemp()}°C");
+        }
+
+
     }
+            
 }
