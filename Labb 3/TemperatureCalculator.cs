@@ -9,10 +9,11 @@ namespace Labb_3
     internal class TemperatureCalculator
     {
         private static double[] temperatures = new double[31];//array för alla dagar i maj 
+        private const string FilePath = "temperatures.txt";
 
 
 
-        public static void TemperatureAnalyzer()
+        public TemperatureCalculator()
         {
             Random random = new Random();
 
