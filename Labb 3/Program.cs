@@ -7,13 +7,19 @@
             TempertureAnalyzer analyzer = new TempertureAnalyzer();
 
             //Temp för varje dag.
-            analyzer.Pintdateandtemp();
+            analyzer.Printdateandtemp();
 
             //Medeltemp
             analyzer.PrintAverageTemperature();
         
-        
-        
+            //max temp
+            analyzer.GetMaxTemp();
+            
+            //min temp
+            analyzer.GetMinTemperature();
+
+            //Median
+            analyzer.PrintMedianTemp();
         }
         
     }
