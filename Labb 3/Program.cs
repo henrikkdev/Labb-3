@@ -60,7 +60,7 @@
                                                     case "1":
                                                         {
 
-                                                            calculator.ListTemperatures();
+                                                            calculator.Printdateandtemp();
                                                             Console.WriteLine("These are the temperatures in May\n" +
                                                                 "1. Sort it from warmest to coldest\n" +
                                                                 "2. Sort it from coldest to warmest\n" +
@@ -134,7 +134,7 @@
                                                     case "3":
                                                         {
 
-                                                            TemperatureCalculator calculator = new TemperatureCalculator();
+                                                          
                                                             calculator.Printdateandtemp();
                                                             return;
                                                         }
