@@ -26,7 +26,6 @@
                             while (true)
                             {
                                 {
-                                    Console.Clear();
                                     Console.Write($"***************************************************************************\n" +
                                         $"Choose an option from the menu:\n" +
                                         $"1. Display temperatures for all days\n" +
@@ -55,36 +54,88 @@
                                                 string UserInputCase1 = Console.ReadLine();
 
 
-                                                bool returnToMainMenu = false;
-                                                while (!returnToMainMenu)
-                                                {
+                                                
+
                                                     switch (UserInputCase1)
                                                     {
                                                         case "1":
                                                             {
-                                                                //TemperatureCalculator Tmpcalc = new TemperatureCalculator();
-                                                                //string templist = Tmpcalc.TemperatureList();
-                                                                //Console.WriteLine(templist.ToString());
+
+                                                                TemperatureCalculator calculator = new TemperatureCalculator();
+                                                                calculator.ListTemperatures();
+                                                                Console.WriteLine("These are the temperatures in May\n" +
+                                                                    "1. Sort it from warmest to coldest\n" +
+                                                                    "2. Sort it from coldest to warmest\n" +
+                                                                    "3. Return to main menu\n" +
+                                                                    "4. Exit ");
+                                                                string UserInputswitch1 = Console.ReadLine();
+                                                                switch (UserInputswitch1)
+                                                                {
+                                                                    case "1":
+                                                                        {
+                                                                            //Sortera från varmt till kallt
+                                                                            break;
+                                                                        }
+                                                                    case "2":
+                                                                        {
+                                                                            //Sortera från kallt till varmt
+                                                                            break;
+                                                                        }
+                                                                    case "3":
+                                                                        {
+                                                                            //Tillbaka till huvudmenyn
+                                                                            break;
+                                                                        }
+                                                                    default:
+                                                                        {
+                                                                            //Avsluta programmet
+                                                                            
+                                                                            return;
+                                                                        }
+                                                                }
+
                                                                 break;
                                                             }
 
                                                         case "2":
                                                             {
+                                                                //Se Medel eller medianvärde på temperaturerna
+                                                                string userInput = Console.ReadLine();
+                                                                switch (userInput)
+                                                                {
+                                                                    case "1":
+                                                                        {
+                                                                            //Se Medelvärde
+                                                                            break;
+                                                                        }
+                                                                    case "2":
+                                                                        {
+                                                                            //Se Medianvärde
+                                                                            break;
+                                                                        }
+                                                                    case "3":
+                                                                        {   
+                                                                            //Återgå till menyn
+                                                                            break;
+                                                                        }
+                                                                    case "4":
+                                                                        {
+                                                                        //Avsluta programmet
+                                                                        break;
+                                                                        }
+                                                                    default:
+                                                                        {
+                                                                            
+                                                                            break;
+                                                                        }
+                                                                }
 
-                                                                
                                                                 break;
                                                             }
 
                                                         case "3":
                                                             {
-                                                                //Console.Clear();
-                                                                //TemperatureCalculator Tmpcalc = new TemperatureCalculator();
-                                                                //double[] templist = Tmpcalc.TemperatureCalculator();
-                                                                //var sortedTemps = templist.OrderByDescending(t => t).ToArray();
-                                                                //for (int i = 0; i < sortedTemps.Length; i++)
-                                                                //{
-                                                                //    Console.WriteLine($"Day {i + 1}: {sortedTemps[i]}°C");
-                                                                //}
+                                                               
                                                                 TemperatureCalculator calculator = new TemperatureCalculator();
                                                                 calculator.ListTemperatures();
                                                                 break;
@@ -92,8 +143,9 @@
 
                                                         case "4":
                                                             {
+                                                                
                                                                 Console.WriteLine("You will now return to the main menu");
-                                                                returnToMainMenu = true;
+                                                                
                                                                 break;
                                                             }
 
@@ -106,42 +158,46 @@
 
 
                                                     }
-                                                }
-                                                break;//Breakar main 
+                                                break;
                                             }
 
-                                        /* case "2": // Lista. Alternativ att se medelvärde och medianvärde
+                                         case "2": // Lista. Alternativ att se medelvärde och medianvärde
                                          {
-                                         Console.WriteLine($"Medeltemp: {analyzer.GetAverageTemperature()}");
+                                         // Console.WriteLine($"Medeltemp: {analyzer.GetAverageTemperature()}");
                                          break;
-                                         }*/
+                                         }
 
                                         case "3":
-                                            {
+                                            { 
+                                                // Se den varmaste och kallaste dagen
                                                 Console.WriteLine("");
                                                 break;
                                             }
 
                                         case "4":
-                                            {
+                                            {   
+                                                //Visa när der är varmare än ett visst tröskelvärde
                                                 Console.WriteLine("");
                                                 break;
                                             }
 
                                         case "5":
                                             {
+                                                //Visa dagens datum samt dagen innan och dagen efter, och printa temperatur
                                                 Console.WriteLine("");
                                                 break;
                                             }
 
                                         case "6":
                                             {
+                                                //Visa vanligast förekommande temperatur
                                                 Console.WriteLine("");
                                                 break;
                                             }
 
                                         case "7":
                                             {
+                                                // Avsluta programmet
                                                 Console.WriteLine("\n***************************************************************************\n" +
                                                     "Thank you for using this program, hope to see you again soon" +
                                                     "\n***************************************************************************");
