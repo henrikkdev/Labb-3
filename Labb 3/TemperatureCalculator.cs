@@ -30,6 +30,12 @@
             }
         }
 
+        public void AverageTemperature()
+        {
+            Console.Clear();
+            double average = temperatures.Average();
+            Console.WriteLine($"Medeltemperaturen för maj är {average:F2}°C");
+        }
 
 
     }
