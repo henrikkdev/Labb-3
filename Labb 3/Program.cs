@@ -4,6 +4,8 @@
     {
         static void Main(string[] args)
         {
+            TemperatureCalculator calculator = new TemperatureCalculator();
+
             Console.WriteLine("***************************************************************************\n" +
                 "Hello and welcome to the TemperatureCalculator!");
 
@@ -53,16 +55,12 @@
                                                     "4. Exit");
                                                 string UserInputCase1 = Console.ReadLine();
 
-
-
-
                                                 switch (UserInputCase1)
                                                 {
                                                     case "1":
                                                         {
 
-                                                            TemperatureCalculator calculator = new TemperatureCalculator();
-                                                            calculator.Printdateandtemp();
+                                                            calculator.ListTemperatures();
                                                             Console.WriteLine("These are the temperatures in May\n" +
                                                                 "1. Sort it from warmest to coldest\n" +
                                                                 "2. Sort it from coldest to warmest\n" +
@@ -74,7 +72,6 @@
                                                                 case "1":
                                                                     {
                                                                         //Sortera från varmt till kallt
-
                                                                         break;
                                                                     }
                                                                 case "2":
