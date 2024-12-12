@@ -20,7 +20,7 @@
             //printar värmen för varje dag 
             for (int i = 0; i < temperatures.Length; i++)
             {
-                Console.WriteLine($"day {i + 1}: {temperatures[i]}°C");
+                Console.WriteLine($"Day {i + 1}: {temperatures[i]}°C");
             }
         }
 
@@ -37,10 +37,10 @@
                 temperaturesWithDays = temperaturesWithDays.OrderByDescending(t => t.temperatures);
             }
 
-            Console.WriteLine(ascending ? "\nTemperaturer sorterade efter kyla:" :  "\nTemperaturer sorterade efter värme:");
+            Console.WriteLine(ascending ? "\nTemperatures sorted from cold to warm:" :  "\nTemperatures sorted from warm to cold:");
             foreach (var item in temperaturesWithDays)
             {
-                Console.WriteLine($"Dag {item.Day}: {item.temperatures}°C");
+                Console.WriteLine($"Day {item.Day}: {item.temperatures}°C");
             }
         }
 
@@ -52,7 +52,7 @@
         }
         public void PrintAverageTemperature()
         {
-            Console.WriteLine($"\nMedeltemperatur: {GetAverageTemperature()}°C");
+            Console.WriteLine($"\nAverage temperature: {GetAverageTemperature()}°C");
         }
 
         //högsta temp och dagen det skedde
@@ -60,7 +60,7 @@
         {
             double maxTemp = temperatures.Max();
             int day = Array.IndexOf(temperatures, maxTemp) + 1;
-            Console.WriteLine($"\nhögsta temp: {maxTemp}°C på dag {day}");
+            Console.WriteLine($"\nHighest temperature: {maxTemp}°C, on {day}");
         }
 
         //mintemp
@@ -68,7 +68,7 @@
         {
             double minTemp = temperatures.Min();
             int day = Array.IndexOf(temperatures, minTemp) + 1;
-            Console.WriteLine($"\nminsta temp: {minTemp}°C på dag {day}");
+            Console.WriteLine($"\nLowest temperature: {minTemp}°C, on {day}");
         }
 
         //median
@@ -88,14 +88,14 @@
         }
         public void PrintMedianTemp()
         {
-            Console.WriteLine($"\nMedian temp: {GetMedianTemp()}°C");
+            Console.WriteLine($"\nMedian temperature: {GetMedianTemp()}°C");
         }
 
         //temperaturer över en tröskel
         public void Tempfilter(double threshold)
         {
             var TempFilterd = temperatures.Where(t => t > threshold).ToArray();
-            Console.WriteLine($"Days with temps over {threshold}°C");
+            Console.WriteLine($"Days with temperatures over {threshold}°C");
             for (int i = 0; i < TempFilterd.Length; i++)
             {
                 int day = Array.IndexOf(temperatures, TempFilterd[i])+ 1;
@@ -108,7 +108,7 @@
         {
             if (day < 1 || day > 31)
             {
-                Console.WriteLine("Ogiltig dag");
+                Console.WriteLine("Error, please choose a day between 1 and 31.");
                 return;
             }
 
@@ -116,9 +116,9 @@
             double prevDayTemp = day >1 ? temperatures[day - 2] : double.NaN;
             double nextDayTemp = day < 31 ? temperatures[day] : double.NaN;
 
-            Console.WriteLine($"Temp för dag {day}: {todayTemp}°C");
-            if(!double.IsNaN(prevDayTemp)) Console.WriteLine($"dagen före {day - 1}: {prevDayTemp}°C");
-            if (!double.IsNaN(nextDayTemp)) Console.WriteLine($"dagen efter {day + 1}: {nextDayTemp}°C");
+            Console.WriteLine($"Temperature for day {day}: {todayTemp}°C");
+            if(!double.IsNaN(prevDayTemp)) Console.WriteLine($"The day before {day - 1}: {prevDayTemp}°C");
+            if (!double.IsNaN(nextDayTemp)) Console.WriteLine($"The day after {day + 1}: {nextDayTemp}°C");
         }
 
         //mest förekommande temp
@@ -127,11 +127,11 @@
             var frequency = temperatures.GroupBy(t => t).OrderByDescending(g =>g.Count()).FirstOrDefault();
             if (frequency != null)
             {
-                Console.WriteLine($"\nDen vanligaste temperaturen är {frequency.Key}°C\n");
+                Console.WriteLine($"\nThe most frequent temperature for may was: {frequency.Key}°C\n");
             }
             else
             {
-                Console.WriteLine("Inget data tillgängliga.");
+                Console.WriteLine("No data available.");
             }
         }
 

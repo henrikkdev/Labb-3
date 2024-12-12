@@ -18,7 +18,6 @@
                 try
                 {
 
-
                     switch (UserInputStart)
                     {
                         case "1":
