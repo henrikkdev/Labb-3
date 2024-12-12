@@ -70,7 +70,33 @@
             Console.WriteLine($"\nMedian temp: {GetMedianTemp()}°C");
         }
 
+        //temperaturer över en tröskel
+        public void Tempfilter(double threshold)
+        {
+            var TempFilterd = temperatures.Where(t => t > threshold).ToArray();
+            Console.WriteLine($"Days with temps over {threshold}°C");
+            for (int i = 0; i < TempFilterd.Length; i++)
+            {
+                int day = Array.IndexOf(temperatures, TempFilterd[i])+ 1;
+                Console.WriteLine($"Day {day}: {TempFilterd[i]}°C");
+            }
+        }
+        public void GetTemperatureOfDay(int day)
+        {
+            if (day < 1 || day > 31)
+            {
+                Console.WriteLine("Ogiltig dag");
+                return;
+            }
 
+            double todayTemp = temperatures[day - 1];
+            double prevDayTemp = day >1 ? temperatures[day - 2] : double.NaN;
+            double nextDayTemp = day < 31 ? temperatures[day] : double.NaN;
+
+            Console.WriteLine($"Temp för dag {day}: {todayTemp}°C");
+            if(!double.IsNaN(prevDayTemp)) Console.WriteLine($"dagen före {day - 1}: {prevDayTemp}°C");
+            if (!double.IsNaN(nextDayTemp)) Console.WriteLine($"dagen efter {day + 1}: {nextDayTemp}°C");
+        }
     }
 
 }

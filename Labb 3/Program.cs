@@ -59,8 +59,6 @@
                                                 {
                                                     case "1":
                                                         {
-
-                                                            calculator.ListTemperatures();
                                                             Console.WriteLine("These are the temperatures in May\n" +
                                                                 "1. Sort it from warmest to coldest\n" +
                                                                 "2. Sort it from coldest to warmest\n" +
@@ -182,7 +180,7 @@
                                         case "5":
                                             {
                                                 //Visa dagens datum samt dagen innan och dagen efter, och printa temperatur
-                                                Console.WriteLine("");
+                                                calculator.GetTemperatureOfDay;
                                                 break;
                                             }
 
