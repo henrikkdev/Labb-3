@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            TemperatureCalculator calculator = new TemperatureCalculator();
             Console.WriteLine("***************************************************************************\n" +
                 "Hello and welcome to the TemperatureCalculator!\n" +
                 "***************************************************************************\n\n" +
@@ -43,16 +44,7 @@
                                     case "1": //lista
                                         {
                                             Console.Clear();
-                                            Console.WriteLine("***************************************************************************\n" +
-                                                "You chose to view the temperature for each day in a list.\n" +
-                                                "Now you will get three options for how you want to see this list:\n" +
-                                                "1. Date\n" +
-                                                "2. Warmest to coldest\n" +
-                                                "3. Coldest to warmest\n" +
-                                                "4. Exit");
-                                            string UserInputCase1 = Console.ReadLine();
 
-                                            TemperatureCalculator calculator = new TemperatureCalculator();
                                             calculator.Printdateandtemp();
                                             Console.WriteLine("These are the temperatures in May\n" +
                                                 "1. Sort it from warmest to coldest\n" +
@@ -138,7 +130,7 @@
                                     case "3":
                                         {
 
-                                            TemperatureCalculator calculator = new TemperatureCalculator();
+                                            
                                             calculator.Printdateandtemp();
                                             break;
                                         }
