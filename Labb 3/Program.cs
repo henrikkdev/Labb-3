@@ -15,6 +15,7 @@ namespace Labb_3
             Console.Write("Your input: ");
             string UserInputStart = Console.ReadLine();
             Console.WriteLine("\n***************************************************************************");
+
             bool mainmenu = true;
             while (mainmenu == true)
             {
@@ -68,7 +69,8 @@ namespace Labb_3
                                             else if (UserInputswitch1 == "3")
                                             {
                                                 //Tillbaka till huvudmenyn
-                                                break;
+                                                mainmenu = true;
+                                                return;
                                             }
 
                                             else if (UserInputswitch1 == "4")
@@ -89,6 +91,7 @@ namespace Labb_3
                                     case "2":
                                         {
                                             Console.Clear();
+                                            Console.WriteLine("Type 1 if you want to see the average temperature");
                                             //Se Medel eller medianvärde på temperaturerna
                                             string userInput = Console.ReadLine();
                                             switch (userInput)

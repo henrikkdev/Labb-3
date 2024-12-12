@@ -60,7 +60,7 @@
         {
             double maxTemp = temperatures.Max();
             int day = Array.IndexOf(temperatures, maxTemp) + 1;
-            Console.WriteLine($"\nHighest temperature: {maxTemp}°C, on {day}");
+            Console.WriteLine($"\nHighest temperature: {maxTemp}°C, on day: {day}");
         }
 
         //mintemp
@@ -68,7 +68,7 @@
         {
             double minTemp = temperatures.Min();
             int day = Array.IndexOf(temperatures, minTemp) + 1;
-            Console.WriteLine($"\nLowest temperature: {minTemp}°C, on {day}");
+            Console.WriteLine($"\nLowest temperature: {minTemp}°C, on day: {day}");
         }
 
         //median
