@@ -155,7 +155,7 @@
                                         }
                                         break;
                                     }
-                                case "4"://tröskel men funkar inte helt...
+                                case "4"://tröskel
                                     {
                                         Console.Clear();
                                         Console.WriteLine("1. Thresholdtemp\n" +
