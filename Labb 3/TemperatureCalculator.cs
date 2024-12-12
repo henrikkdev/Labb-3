@@ -94,12 +94,15 @@
         //temperaturer över en tröskel
         public void Tempfilter(double threshold)
         {
-            var TempFilterd = temperatures.Where(t => t > threshold).ToArray();
-            Console.WriteLine($"Days with temperatures over {threshold}°C");
-            for (int i = 0; i < TempFilterd.Length; i++)
+            Console.WriteLine($"Days with temperatures over {threshold}°C:");
+
+            // Iterera manuellt genom arrayen och kontrollera temperaturen
+            for (int i = 0; i < temperatures.Length; i++)
             {
-                int day = Array.IndexOf(temperatures, TempFilterd[i]) + 1;
-                Console.WriteLine($"Day {day:00}: {TempFilterd[i]}°C");
+                if (temperatures[i] >= threshold)
+                {
+                    Console.WriteLine($"Day {i + 1:00}: {temperatures[i]}°C");
+                }
             }
         }
 
