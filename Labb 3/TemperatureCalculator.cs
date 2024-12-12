@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Labb_3
+﻿namespace Labb_3
 {
     class TemperatureCalculator
     {
@@ -14,7 +7,7 @@ namespace Labb_3
 
         public TemperatureCalculator()
         {
-            Random random = new Random();
+            Random random = new Random(123);
 
             for (int i = 0; i < temperatures.Length; i++)
             {
@@ -27,15 +20,15 @@ namespace Labb_3
             //printar värmen för varje dag 
             for (int i = 0; i < temperatures.Length; i++)
             {
-                Console.WriteLine($"day {i + 1}: {temperatures[i]}°C");
+                Console.WriteLine($"Day {i + 1}: {temperatures[i]}°C");
             }
         }
 
         //medeltemp
         public double GetAverageTemperature()
-        { 
+        {
             return temperatures.Average();
-            
+
         }
         public void PrintAverageTemperature()
         {
@@ -49,7 +42,7 @@ namespace Labb_3
             int day = Array.IndexOf(temperatures, maxTemp) + 1;
             Console.WriteLine($"\nhögsta temp: {maxTemp}°C på dag {day}");
         }
-        
+
         //mintemp
         public void GetMinTemperature()
         {
@@ -57,14 +50,14 @@ namespace Labb_3
             int day = Array.IndexOf(temperatures, minTemp) + 1;
             Console.WriteLine($"\nminsta temp: {minTemp}°C på dag {day}");
         }
-        
+
         //median
         public double GetMedianTemp()
         {
             var sortedTemps = temperatures.OrderBy(t => t).ToArray();
             int middleIndex = sortedTemps.Length / 2;
 
-            if (sortedTemps.Length % 2==0)
+            if (sortedTemps.Length % 2 == 0)
             {
                 return (sortedTemps[middleIndex - 1] + sortedTemps[middleIndex]) / 2;
             }
@@ -80,5 +73,5 @@ namespace Labb_3
 
 
     }
-            
+
 }
