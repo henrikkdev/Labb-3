@@ -56,24 +56,25 @@ namespace Labb_3
                                             if (UserInputswitch1 == "1")
                                             {
                                                 //Sortera från varmt till kallt
+                                                calculator.PrintTempSorter(true);
                                             }
 
                                             else if (UserInputswitch1 == "2")
                                             {
                                                 //Sortera från kallt till varmt
-                                               
+                                                calculator.PrintTempSorter(false);
                                             }
 
                                             else if (UserInputswitch1 == "3")
                                             {
                                                 //Tillbaka till huvudmenyn
-                                                mainmenu = true;
+                                                break;
                                             }
 
                                             else if (UserInputswitch1 == "4")
                                             {
                                                 //Avsluta programmet
-                                                
+                                                return;
                                             }
 
                                             else
@@ -88,8 +89,6 @@ namespace Labb_3
                                     case "2":
                                         {
                                             Console.Clear();
-                                            TemperatureCalculator average = new TemperatureCalculator();
-                                            average.PrintAverageTemperature();
                                             //Se Medel eller medianvärde på temperaturerna
                                             string userInput = Console.ReadLine();
                                             switch (userInput)
@@ -97,15 +96,14 @@ namespace Labb_3
                                                 case "1":
                                                     {
                                                         //Se Medelvärde
-
-                                                        average.GetAverageTemperature();
-
+                                                        calculator.PrintAverageTemperature();
                                                         return;
                                                     }
                                                 case "2":
                                                     {
                                                         //Se Medianvärde
-                                                        break;
+                                                        calculator.PrintMedianTemp();
+                                                        return;
                                                     }
                                                 case "3":
                                                     {
@@ -132,31 +130,36 @@ namespace Labb_3
                                         {
 
                                             
-                                            calculator.Printdateandtemp();
-                                            break;
+                                            calculator.GetMaxTemp();
+                                            calculator.GetMinTemperature();
+                                            return;
                                         }
 
                                     case "4":
                                         {
 
-                                            Console.WriteLine("You will now return to the main menu");
+                                            //tröskel lägg in user inp
+                                            calculator.Tempfilter(15);
 
-                                            break;
+                                            return;
                                         }
 
 
                                     case "5":
                                         {
-                                            //Visa dagens datum samt dagen innan och dagen efter, och printa temperatur
+                                            //Visa dagens datum samt dagen innan och dagen efter, och printa temperatur lägg in user inp
                                             Console.WriteLine("");
-                                            break;
+
+                                            calculator.GetTemperatureOfDay(15);
+                                            return;
                                         }
 
                                     case "6":
                                         {
                                             //Visa vanligast förekommande temperatur
-                                            Console.WriteLine("");
-                                            break;
+
+                                            calculator.GetMostFrequentTemperature();
+                                            return;
                                         }
 
                                     case "7":
