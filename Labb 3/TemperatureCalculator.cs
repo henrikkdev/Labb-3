@@ -20,7 +20,7 @@
             //printar värmen för varje dag 
             for (int i = 0; i < temperatures.Length; i++)
             {
-                Console.WriteLine($"Day {i + 1}: {temperatures[i]}°C");
+                Console.WriteLine($"Day {i + 1:00}: {temperatures[i]}°C");
             }
         }
 
@@ -40,7 +40,7 @@
             Console.WriteLine(ascending ? "\nTemperatures sorted from cold to warm:" : "\nTemperatures sorted from warm to cold:");
             foreach (var item in temperaturesWithDays)
             {
-                Console.WriteLine($"Day {item.Day}: {item.temperatures}°C");
+                Console.WriteLine($"Day {item.Day:00}: {item.temperatures}°C");
             }
         }
 
@@ -60,7 +60,7 @@
         {
             double maxTemp = temperatures.Max();
             int day = Array.IndexOf(temperatures, maxTemp) + 1;
-            Console.WriteLine($"\nHighest temperature: {maxTemp}°C, on day: {day}");
+            Console.WriteLine($"\nHighest temperature: {maxTemp}°C, on day: {day:00}");
         }
 
         //mintemp
@@ -68,7 +68,7 @@
         {
             double minTemp = temperatures.Min();
             int day = Array.IndexOf(temperatures, minTemp) + 1;
-            Console.WriteLine($"\nLowest temperature: {minTemp}°C, on day: {day}");
+            Console.WriteLine($"\nLowest temperature: {minTemp}°C, on day: {day:00}");
         }
 
         //median
@@ -99,7 +99,7 @@
             for (int i = 0; i < TempFilterd.Length; i++)
             {
                 int day = Array.IndexOf(temperatures, TempFilterd[i]) + 1;
-                Console.WriteLine($"Day {day}: {TempFilterd[i]}°C");
+                Console.WriteLine($"Day {day:00}: {TempFilterd[i]}°C");
             }
         }
 
@@ -116,9 +116,9 @@
             double prevDayTemp = day > 1 ? temperatures[day - 2] : double.NaN;
             double nextDayTemp = day < 31 ? temperatures[day] : double.NaN;
 
-            Console.WriteLine($"Temperature for day {day}: {todayTemp}°C");
-            if (!double.IsNaN(prevDayTemp)) Console.WriteLine($"The day before {day - 1}: {prevDayTemp}°C");
-            if (!double.IsNaN(nextDayTemp)) Console.WriteLine($"The day after {day + 1}: {nextDayTemp}°C");
+            Console.WriteLine($"Temperature for day {day:00}: {todayTemp}°C");
+            if (!double.IsNaN(prevDayTemp)) Console.WriteLine($"The day before {day - 1:00}: {prevDayTemp}°C");
+            if (!double.IsNaN(nextDayTemp)) Console.WriteLine($"The day after {day + 1:00}: {nextDayTemp}°C");
         }
 
         //mest förekommande temp
