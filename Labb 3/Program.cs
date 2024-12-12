@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-
-namespace Labb_3
+﻿namespace Labb_3
 {
     class Program
     {
@@ -17,6 +15,8 @@ namespace Labb_3
             Console.WriteLine("\n***************************************************************************");
 
             bool mainmenu = true;
+            bool casemenu1 = true;
+            bool casemenu2 = true;
             while (mainmenu == true)
             {
                 try
@@ -40,7 +40,7 @@ namespace Labb_3
 
                             string UserInputMainMenu = Console.ReadLine();
 
-                            while (true)
+                            while (casemenu1 == true)
                             {
                                 switch (UserInputMainMenu)
                                 {
@@ -67,7 +67,7 @@ namespace Labb_3
                                             {
                                                 //Sortera från kallt till varmt
                                                 calculator.PrintTempSorter(false);
-                                                return;
+                                                casemenu2 = true;
                                             }
 
                                             else if (UserInputswitch1 == "3")
@@ -91,102 +91,114 @@ namespace Labb_3
                                         }
                                         break;
 
-
-                                    case "2":
-                                        {
-                                            Console.Clear();
-                                            Console.WriteLine("Type 1 if you want to see the average temperature");
-                                            //Se Medel eller medianvärde på temperaturerna
-                                            string userInput = Console.ReadLine();
-                                            switch (userInput)
-                                            {
-                                                case "1":
-                                                    {
-                                                        //Se Medelvärde
-                                                        calculator.PrintAverageTemperature();
-                                                        return;
-                                                    }
-                                                case "2":
-                                                    {
-                                                        //Se Medianvärde
-                                                        calculator.PrintMedianTemp();
-                                                        return;
-                                                    }
-                                                case "3":
-                                                    {
-                                                        //Återgå till menyn
-                                                        break;
-                                                    }
-                                                case "4":
-                                                    {
-                                                        //Avsluta programmet
-                                                        break;
-                                                    }
-                                                default:
-                                                    {
-
-                                                        break;
-                                                    }
-                                            }
-
-                                            break;
-                                        }
-
-
-                                    case "3":
-                                        {
-
-                                            
-                                            calculator.GetMaxTemp();
-                                            calculator.GetMinTemperature();
-                                            return;
-                                        }
-
-                                    case "4":
-                                        {
-
-                                            //tröskel lägg in user inp
-                                            calculator.Tempfilter(15);
-
-                                            return;
-                                        }
-
-
-                                    case "5":
-                                        {
-                                            //Visa dagens datum samt dagen innan och dagen efter, och printa temperatur lägg in user inp
-                                            Console.WriteLine("");
-
-                                            calculator.GetTemperatureOfDay(15);
-                                            return;
-                                        }
-
-                                    case "6":
-                                        {
-                                            //Visa vanligast förekommande temperatur
-
-                                            calculator.GetMostFrequentTemperature();
-                                            return;
-                                        }
-
-                                    case "7":
-                                        {
-                                            // Avsluta programmet
-                                            Console.WriteLine("\n***************************************************************************\n" +
-                                                "Thank you for using this program, hope to see you again soon" +
-                                                "\n***************************************************************************");
-                                            return; //avslutar huvudmenyn
-                                        }
-
-                                    default:
-                                        {
-                                            Console.Clear();
-                                            Console.WriteLine("Your input was invalid try again but with nmbr\n");
-                                            break; //går tillbaka till huvudmenyn om input är fel
-                                        }
-
                                 }
                             }
+
+                                while (casemenu2 == true)
+                                {
+
+
+
+                                    case "2":
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine("Type 1 if you want to see the average temperature\n" +
+                                            "Type 2 if you want to see the median value\n" +
+                                            "Type 3 if you want to return to the main menu\n" +
+                                            "Type 4 if you want to exit");
+                                        //Se Medel eller medianvärde på temperaturerna
+                                        string userInput = Console.ReadLine();
+                                        switch (userInput)
+                                        {
+                                            case "1":
+                                                {
+                                                    //Se Medelvärde
+                                                    calculator.PrintAverageTemperature();
+                                                    return;
+                                                }
+                                            case "2":
+                                                {
+                                                    //Se Medianvärde
+                                                    calculator.PrintMedianTemp();
+                                                    return;
+                                                }
+                                            case "3":
+                                                {
+                                                    //Återgå till menyn
+                                                    mainmenu = true;
+                                                    return;
+                                                }
+                                            case "4":
+                                                {
+                                                    //Avsluta programmet
+                                                    break;
+                                                }
+                                            default:
+                                                {
+
+                                                    break;
+                                                }
+                                        }
+
+                                        break;
+                                    }
+                                }
+                            }
+
+                        case "3":
+                            {
+
+
+                                calculator.GetMaxTemp();
+                                calculator.GetMinTemperature();
+                                return;
+                            }
+
+                        case "4":
+                            {
+
+                                //tröskel lägg in user inp
+                                calculator.Tempfilter(15);
+
+                                return;
+                            }
+
+
+                        case "5":
+                            {
+                                //Visa dagens datum samt dagen innan och dagen efter, och printa temperatur lägg in user inp
+                                Console.WriteLine("");
+
+                                calculator.GetTemperatureOfDay(15);
+                                return;
+                            }
+
+                        case "6":
+                            {
+                                //Visa vanligast förekommande temperatur
+
+                                calculator.GetMostFrequentTemperature();
+                                return;
+                            }
+
+                        case "7":
+                            {
+                                // Avsluta programmet
+                                Console.WriteLine("\n***************************************************************************\n" +
+                                    "Thank you for using this program, hope to see you again soon" +
+                                    "\n***************************************************************************");
+                                return; //avslutar huvudmenyn
+                            }
+
+                        default:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Your input was invalid try again but with nmbr\n");
+                                break; //går tillbaka till huvudmenyn om input är fel
+                            }
+
+
+
 
 
 
@@ -205,10 +217,11 @@ namespace Labb_3
                                 Console.WriteLine("Your input was invalid try again but with nmbr");
                                 break;
                             }
-                    }
 
-                }
-                catch (Exception ex) 
+                    } 
+
+
+                catch (Exception ex)
                 {
                     Console.WriteLine("You are beeing redirected to the main menu.");
                 }

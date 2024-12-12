@@ -28,7 +28,7 @@
         public void PrintTempSorter(bool ascending = true)
         {
             var temperaturesWithDays = temperatures.Select((temp, index) => new { Day = index + 1, temperatures = temp });
-            if (ascending )
+            if (ascending)
             {
                 temperaturesWithDays = temperaturesWithDays.OrderBy(t => t.temperatures);
             }
@@ -37,7 +37,7 @@
                 temperaturesWithDays = temperaturesWithDays.OrderByDescending(t => t.temperatures);
             }
 
-            Console.WriteLine(ascending ? "\nTemperatures sorted from cold to warm:" :  "\nTemperatures sorted from warm to cold:");
+            Console.WriteLine(ascending ? "\nTemperatures sorted from cold to warm:" : "\nTemperatures sorted from warm to cold:");
             foreach (var item in temperaturesWithDays)
             {
                 Console.WriteLine($"Day {item.Day}: {item.temperatures}°C");
@@ -98,11 +98,11 @@
             Console.WriteLine($"Days with temperatures over {threshold}°C");
             for (int i = 0; i < TempFilterd.Length; i++)
             {
-                int day = Array.IndexOf(temperatures, TempFilterd[i])+ 1;
+                int day = Array.IndexOf(temperatures, TempFilterd[i]) + 1;
                 Console.WriteLine($"Day {day}: {TempFilterd[i]}°C");
             }
         }
-        
+
         //Temp för specefik dag
         public void GetTemperatureOfDay(int day)
         {
@@ -113,18 +113,18 @@
             }
 
             double todayTemp = temperatures[day - 1];
-            double prevDayTemp = day >1 ? temperatures[day - 2] : double.NaN;
+            double prevDayTemp = day > 1 ? temperatures[day - 2] : double.NaN;
             double nextDayTemp = day < 31 ? temperatures[day] : double.NaN;
 
             Console.WriteLine($"Temperature for day {day}: {todayTemp}°C");
-            if(!double.IsNaN(prevDayTemp)) Console.WriteLine($"The day before {day - 1}: {prevDayTemp}°C");
+            if (!double.IsNaN(prevDayTemp)) Console.WriteLine($"The day before {day - 1}: {prevDayTemp}°C");
             if (!double.IsNaN(nextDayTemp)) Console.WriteLine($"The day after {day + 1}: {nextDayTemp}°C");
         }
 
         //mest förekommande temp
         public void GetMostFrequentTemperature()
         {
-            var frequency = temperatures.GroupBy(t => t).OrderByDescending(g =>g.Count()).FirstOrDefault();
+            var frequency = temperatures.GroupBy(t => t).OrderByDescending(g => g.Count()).FirstOrDefault();
             if (frequency != null)
             {
                 Console.WriteLine($"\nThe most frequent temperature for may was: {frequency.Key}°C\n");
@@ -135,7 +135,7 @@
             }
         }
 
-        
+
     }
 
 }
