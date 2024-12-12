@@ -60,6 +60,7 @@ namespace Labb_3
                                                 //Sortera från varmt till kallt
                                                 calculator.PrintTempSorter(true);
                                                 return;
+                                                
                                             }
 
                                             else if (UserInputswitch1 == "2")
