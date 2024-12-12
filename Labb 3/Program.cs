@@ -37,6 +37,7 @@
                                 $"7. Exit the program\n" +
                                 $"***************************************************************************\n" +
                                 $"Put your input here:");
+
                             string UserInputMainMenu = Console.ReadLine();
 
                             while (casemenu1 == true)
@@ -58,6 +59,7 @@
                                             {
                                                 //Sortera från varmt till kallt
                                                 calculator.PrintTempSorter(true);
+                                                return;
                                             }
 
                                             else if (UserInputswitch1 == "2")
