@@ -70,11 +70,13 @@
                                                                 case "1":
                                                                     {
                                                                         //Sortera från varmt till kallt
+                                                                        calculator.PrintTempSorter(true);
                                                                         break;
                                                                     }
                                                                 case "2":
                                                                     {
                                                                         //Sortera från kallt till varmt
+                                                                        calculator.PrintTempSorter(false);
                                                                         break;
                                                                     }
                                                                 case "3":
@@ -131,8 +133,6 @@
 
                                                     case "3":
                                                         {
-
-                                                            TemperatureCalculator calculator = new TemperatureCalculator();
                                                             calculator.Printdateandtemp();
                                                             return;
                                                         }
@@ -160,6 +160,8 @@
                                         case "2": // Lista. Alternativ att se medelvärde och medianvärde
                                             {
                                                 // Console.WriteLine($"Medeltemp: {analyzer.GetAverageTemperature()}");
+                                                calculator.PrintTempSorter(false);
+
                                                 break;
                                             }
 
@@ -180,14 +182,14 @@
                                         case "5":
                                             {
                                                 //Visa dagens datum samt dagen innan och dagen efter, och printa temperatur
-                                                calculator.GetTemperatureOfDay;
+                                                calculator.GetTemperatureOfDay(15);
                                                 break;
                                             }
 
                                         case "6":
                                             {
                                                 //Visa vanligast förekommande temperatur
-                                                Console.WriteLine("");
+                                                calculator.GetMostFrequentTemperature();
                                                 break;
                                             }
 

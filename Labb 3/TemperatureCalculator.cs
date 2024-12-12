@@ -24,6 +24,27 @@
             }
         }
 
+        //Temp sorterare
+        public void PrintTempSorter(bool ascending = true)
+        {
+            var temperaturesWithDays = temperatures.Select((temp, index) => new { Day = index + 1, temperatures = temp });
+            if (ascending )
+            {
+                temperaturesWithDays = temperaturesWithDays.OrderBy(t => t.temperatures);
+            }
+            else
+            {
+                temperaturesWithDays = temperaturesWithDays.OrderByDescending(t => t.temperatures);
+            }
+
+            Console.WriteLine(ascending ? "\nTemperaturer sorterade efter kyla:" :  "\nTemperaturer sorterade efter värme:");
+            foreach (var item in temperaturesWithDays)
+            {
+                Console.WriteLine($"Dag {item.Day}: {item.temperatures}°C");
+            }
+        }
+
+
         //medeltemp
         public double GetAverageTemperature()
         {
@@ -81,6 +102,8 @@
                 Console.WriteLine($"Day {day}: {TempFilterd[i]}°C");
             }
         }
+        
+        //Temp för specefik dag
         public void GetTemperatureOfDay(int day)
         {
             if (day < 1 || day > 31)
@@ -97,6 +120,22 @@
             if(!double.IsNaN(prevDayTemp)) Console.WriteLine($"dagen före {day - 1}: {prevDayTemp}°C");
             if (!double.IsNaN(nextDayTemp)) Console.WriteLine($"dagen efter {day + 1}: {nextDayTemp}°C");
         }
+
+        //mest förekommande temp
+        public void GetMostFrequentTemperature()
+        {
+            var frequency = temperatures.GroupBy(t => t).OrderByDescending(g =>g.Count()).FirstOrDefault();
+            if (frequency != null)
+            {
+                Console.WriteLine($"\nDen vanligaste temperaturen är {frequency.Key}°C\n");
+            }
+            else
+            {
+                Console.WriteLine("Inget data tillgängliga.");
+            }
+        }
+
+        
     }
 
 }
