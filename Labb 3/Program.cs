@@ -1,4 +1,6 @@
-﻿namespace Labb_3
+﻿using System.Linq.Expressions;
+
+namespace Labb_3
 {
     class Program
     {
@@ -13,7 +15,8 @@
             Console.Write("Your input: ");
             string UserInputStart = Console.ReadLine();
             Console.WriteLine("\n***************************************************************************");
-            while (true)
+            bool mainmenu = true;
+            while (mainmenu == true)
             {
                 try
                 {
@@ -43,7 +46,6 @@
                                     case "1": //lista
                                         {
                                             Console.Clear();
-
                                             calculator.Printdateandtemp();
                                             Console.WriteLine("These are the temperatures in May\n" +
                                                 "1. Sort it from warmest to coldest\n" +
@@ -59,19 +61,19 @@
                                             else if (UserInputswitch1 == "2")
                                             {
                                                 //Sortera från kallt till varmt
-
+                                               
                                             }
 
                                             else if (UserInputswitch1 == "3")
                                             {
                                                 //Tillbaka till huvudmenyn
-
+                                                mainmenu = true;
                                             }
 
                                             else if (UserInputswitch1 == "4")
                                             {
                                                 //Avsluta programmet
-
+                                                
                                             }
 
                                             else
@@ -196,9 +198,9 @@
                     }
 
                 }
-                catch
+                catch (Exception ex) 
                 {
-                    Console.WriteLine();
+                    Console.WriteLine("You are beeing redirected to the main menu.");
                 }
             }
         }
