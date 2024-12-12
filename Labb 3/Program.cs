@@ -1,26 +1,32 @@
 ﻿namespace Labb_3
 {
     class Program
-        {
+    {
         static void Main(string[] args)
         {
-            Console.WriteLine("***************************************************************************\n" +
-     "Hello and welcome to the TemperatureCalculator!\n" +
-     "***************************************************************************\n\n");
-            bool bExit = false;
-
+            //välkomstmeddelande
+            Console.WriteLine("***************************************************************************\n" + "Hello and welcome to the TemperatureCalculator!\n" + "***************************************************************************\n\n");
+            
+            //Drar in klassen och skapar en variabel 
             TemperatureCalculator calculator = new TemperatureCalculator();
+            
+            //Flagga när man går tillbaka eller är klar med en uträkning
+            bool bExit = false;
             while (bExit == false)
+            
+           
             {
-
+                //Startmeny och returmeny
                 Console.WriteLine("Type 1 if you want to continue \n" +
                     "Type 2 if you want to exit\n");
                 Console.Write("Your input: ");
                 string UserInputStart = Console.ReadLine();
                 Console.WriteLine("\n***************************************************************************");
 
+                //case för att använda appen eller stänga ner appen
                 switch (UserInputStart)
                 {
+                    //Huvudmeny
                     case "1":
                         {
                             Console.Clear();//rensa consolen  
@@ -73,7 +79,7 @@
                                             bExit = true;
                                             break;
                                         }
-                                        else
+                                        else//Felinput
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
@@ -93,32 +99,32 @@
                                         {
                                             calculator.PrintAverageTemperature();
                                         }
-                                        
-                                        else if(UserInputCase2 == "2")//median
+
+                                        else if (UserInputCase2 == "2")//median
                                         {
                                             calculator.PrintMedianTemp();
                                         }
-                                        
-                                        else if(UserInputCase2 == "3")//return
+
+                                        else if (UserInputCase2 == "3")//return
                                         {
 
                                         }
-                                        
-                                        else if(UserInputCase2 == "4")//exit
+
+                                        else if (UserInputCase2 == "4")//exit
                                         {
                                             Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
                                             bExit = true;
                                             break;
                                         }
-                                       
-                                        else
+
+                                        else//felinput
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
-                                        
+
                                         break;
                                     }
-                                
+
                                 case "3"://hottest/coldestday
                                     {
                                         Console.Clear();
@@ -126,17 +132,17 @@
                                             "2. coldestday\n" +
                                             "3. return to the main menu\n" +
                                             "4. exit");
-                                        
+
                                         string UserInputCase3 = Console.ReadLine();
-                                        if (UserInputCase3 == "1")
+                                        if (UserInputCase3 == "1")//maxtemp
                                         {
                                             calculator.GetMaxTemp();
                                         }
-                                        else if (UserInputCase3 == "2")
+                                        else if (UserInputCase3 == "2")//´lägsta temp
                                         {
                                             calculator.GetMinTemperature();
                                         }
-                                        
+
                                         else if (UserInputCase3 == "3")//return
                                         {
 
@@ -149,7 +155,7 @@
                                             break;
                                         }
 
-                                        else
+                                        else//felinput
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
@@ -163,14 +169,14 @@
                                             "3. exit");
                                         Console.Write("Your input:");
                                         string UserInputCase4 = Console.ReadLine();
-                                        if (UserInputCase4 == "1")
+                                        if (UserInputCase4 == "1")//Tröskel
                                         {
                                             Console.WriteLine("Enter a Temperature threshold");
                                             Console.Write("Your input:");
                                             string ThresholdInput = Console.ReadLine();
-                                            if(double.TryParse(ThresholdInput, out double threshold))
+                                            if (double.TryParse(ThresholdInput, out double threshold))
 
-                                            calculator.Tempfilter(threshold);
+                                                calculator.Tempfilter(threshold);
                                         }
 
                                         else if (UserInputCase4 == "2")//return
@@ -185,7 +191,7 @@
                                             break;
                                         }
 
-                                        else
+                                        else//felinput
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
@@ -199,7 +205,7 @@
                                             "3. exit");
                                         Console.Write("Your input:");
                                         string UserInputCase5 = Console.ReadLine();
-                                        if (UserInputCase5 == "1")
+                                        if (UserInputCase5 == "1")//Specefikdag
                                         {
                                             Console.WriteLine("Enter a day in may (1-31)");
                                             Console.Write("Your input:");
@@ -221,7 +227,7 @@
                                             break;
                                         }
 
-                                        else
+                                        else//felinput
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
@@ -235,7 +241,7 @@
                                             "3. exit");
                                         Console.Write("Your input:");
                                         string UserInputCase6 = Console.ReadLine();
-                                        if (UserInputCase6 == "1")
+                                        if (UserInputCase6 == "1")//mest fekventa graden
                                         {
                                             calculator.GetMostFrequentTemperature();
                                         }
@@ -252,19 +258,19 @@
                                             break;
                                         }
 
-                                        else
+                                        else//felinput
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
                                         break;
                                     }
-                                case "7":
+                                case "7"://avsluta programmet
                                     {
                                         Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
-                                        bExit = true;
+                                        bExit = true;//flagga för att lämna aplikationen 
                                         break;
                                     }
-                                default:
+                                default://felinput
                                     {
                                         Console.WriteLine("Invalid input");
                                         break;
@@ -283,20 +289,13 @@
                             break;
                         }
 
-                    default:
+                    default://felinput
                         {
                             Console.WriteLine("Your input was invalid try again but with nmbr");
                             break;
                         }
-
-
                 }
-
             }
-
-
-
         }
-
     }
 }
