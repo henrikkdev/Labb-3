@@ -163,7 +163,7 @@
                                         //Lägsta temp
                                         else if (userInputCase3 == "2")
                                         {
-                                            calculator.GetMinTemperature();
+                                            calculator.GetMinTemp();
                                         }
 
                                         //Return
@@ -250,7 +250,7 @@
                                             string DayInput = Console.ReadLine();
                                             if (int.TryParse(DayInput, out int day))
 
-                                                calculator.GetTemperatureOfDay(day);
+                                                calculator.GetTempOfDay(day);
                                         }
 
                                         //Return
@@ -289,7 +289,7 @@
                                         //Mest frekventa graden på månade
                                         if (userInputCase6 == "1")
                                         {
-                                            calculator.GetMostFrequentTemperature();
+                                            calculator.GetMostFrequentTemp();
                                         }
 
                                         //Return

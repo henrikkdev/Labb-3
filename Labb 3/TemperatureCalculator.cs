@@ -15,7 +15,7 @@
             }
         }
 
-        public void Printdateandtemp()
+        public void PrintDateandTemp()
         {
             //printar värmen för varje dag 
             for (int i = 0; i < temperatures.Length; i++)
@@ -45,13 +45,13 @@
         }
 
         //medeltemp
-        public double GetAverageTemperature()
+        public double AverageTemp()
         {
             return Math.Round(temperatures.Average(), 2);
         }
         public void PrintAverageTemperature()
         {
-            Console.WriteLine($"\nAverage temperature: {GetAverageTemperature()}°C");
+            Console.WriteLine($"\nAverage temperature: {AverageTemp()}°C");
         }
 
         //högsta temp och dagen det skedde
@@ -63,7 +63,7 @@
         }
 
         //mintemp
-        public void GetMinTemperature()
+        public void GetMinTemp()
         {
             double minTemp = temperatures.Min();
             int day = Array.IndexOf(temperatures, minTemp) + 1;
@@ -106,7 +106,7 @@
         }
 
         //Temp för specefik dag
-        public void GetTemperatureOfDay(int day)
+        public void GetTempOfDay(int day)
         {
             if (day < 1 || day > 31)
             {
@@ -124,7 +124,7 @@
         }
 
         //mest förekommande temp
-        public void GetMostFrequentTemperature()
+        public void GetMostFrequentTemp()
         {
             var frequency = temperatures.GroupBy(t => t).OrderByDescending(g => g.Count()).FirstOrDefault();
             if (frequency != null)
