@@ -53,7 +53,7 @@
                                 case "1":
                                     {
 
-                                        calculator.Printdateandtemp();
+                                        calculator.PrintDateandTemp();
                                         Console.WriteLine("These are the temperatures in May\n" +
                                             "1. Sort it warmest --> coldest\n" +
                                             "2. Sort it coldest --> warmest\n" +
