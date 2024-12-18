@@ -1,4 +1,6 @@
-﻿namespace Labb_3
+﻿using System.Numerics;
+
+namespace Labb_3
 {
     class TemperatureCalculator
     {
@@ -47,7 +49,7 @@
         //medeltemp
         public double GetAverageTemperature()
         {
-            return temperatures.Average();
+            return Math.Round(temperatures.Average(), 2);
         }
         public void PrintAverageTemperature()
         {
