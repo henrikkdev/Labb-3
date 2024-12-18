@@ -5,36 +5,36 @@
         static void Main(string[] args)
         {
 
-            //välkomstmeddelande
+            //Välkomstmeddelande
             Console.WriteLine("***************************************************************************\n" +
                 "Hello and welcome to the TemperatureCalculator!\n" +
-                "***************************************************************************\n\n");
+                "***************************************************************************");
 
-            //Drar in klassen och skapar en variabel 
+            //Instansiering av klassen TemperatureCalculator
             TemperatureCalculator calculator = new TemperatureCalculator();
 
-            //Flagga när man går tillbaka eller är klar med en uträkning
+            //Flagga för meny-loopen, samt while loop
             bool bExit = false;
             while (bExit == false)
 
 
             {
                 //Startmeny och returmeny
-                Console.WriteLine("Type 1 if you want to continue \n" +
-                    "Type 2 if you want to exit\n");
+
+                Console.WriteLine("***************************************************************************\n" +
+                    "1. if you want to continue \n" +
+                    "2. if you want to exit\n");
                 Console.Write("Your input: ");
-                string UserInputStart = Console.ReadLine();
+                string userInputStart = Console.ReadLine();
                 Console.WriteLine("\n***************************************************************************");
 
-                //case för att använda appen eller stänga ner appen
-                switch (UserInputStart)
+
+                switch (userInputStart)
                 {
                     //Huvudmeny
                     case "1":
                         {
-                            Console.Clear();//rensa consolen  
-                            Console.Write($"***************************************************************************\n" +
-                                "Choose an option from the menu:\n" +
+                            Console.Write("Choose an option from the menu:\n" +
                                 "1. Display temperatures for all days\n" +
                                 "2. Display average and median values\n" +
                                 "3. Find the hottest and coldest day (including date)\n" +
@@ -45,82 +45,97 @@
                                 "***************************************************************************\n" +
                                 "Put your input here:");
 
-                            string UserInputMainMenu = Console.ReadLine();
-                            switch (UserInputMainMenu)//huvudmeny switch
+                            string userInputMainMenu = Console.ReadLine();
+
+                            //Undermeny med temperatursorterare
+                            switch (userInputMainMenu)
                             {
-                                case "1"://lista
+                                case "1":
                                     {
-                                        Console.Clear();
+
                                         calculator.Printdateandtemp();
                                         Console.WriteLine("These are the temperatures in May\n" +
-                                            "1. Sort it from warmest to coldest\n" +
-                                            "2. Sort it from coldest to warmest\n" +
+                                            "1. Sort it warmest --> coldest\n" +
+                                            "2. Sort it coldest --> warmest\n" +
                                             "3. Return to main menu\n" +
                                             "4. Exit ");
 
-                                        string UserInputswitch1 = Console.ReadLine();
-                                        if (UserInputswitch1 == "1")
-                                        {
-                                            //Sortera från varmt till kallt
-                                            calculator.PrintTempSorter(true);
+                                        string userInputswitch1 = Console.ReadLine();
 
+                                        //Sortera från varmt till kallt
+                                        if (userInputswitch1 == "1")
+                                        {
+                                            calculator.PrintTempSorter(true);
                                         }
 
-                                        else if (UserInputswitch1 == "2")//kallt till varmt
+                                        //Kallt till varmt
+                                        else if (userInputswitch1 == "2")
                                         {
                                             calculator.PrintTempSorter(false);
                                         }
 
-                                        else if (UserInputswitch1 == "3")//tilbaka till starten 
+                                        //Tillbaka till starten 
+                                        else if (userInputswitch1 == "3")
                                         {
-
+                                            continue;
                                         }
 
-                                        else if (UserInputswitch1 == "4")//exit
+                                        //Exit
+                                        else if (userInputswitch1 == "4")
                                         {
-                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
+                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n" +
+                                                "***************************************************************************");
                                             bExit = true;
                                             break;
                                         }
-                                        else//Felinput
+
+                                        //Felinput
+                                        else
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
                                         break;
                                     }
 
-                                case "2"://avg temp och median
+                                //Undermeny med medeltemperatur och mediantemperatur
+                                case "2":
                                     {
-                                        Console.Clear();
-                                        Console.WriteLine("1. average temperature\n" +
-                                            "2. median value\n" +
-                                            "3. return to the main menu\n" +
-                                            "4. exit");
+                                        Console.WriteLine("1. Average temperature\n" +
+                                            "2. Median value\n" +
+                                            "3. Return to the main menu\n" +
+                                            "4. Exit");
 
-                                        string UserInputCase2 = Console.ReadLine();
-                                        if (UserInputCase2 == "1")//average temp
+                                        string userInputCase2 = Console.ReadLine();
+
+                                        //Average temp
+                                        if (userInputCase2 == "1")
                                         {
                                             calculator.PrintAverageTemperature();
                                         }
 
-                                        else if (UserInputCase2 == "2")//median
+                                        //Median
+                                        else if (userInputCase2 == "2")
                                         {
                                             calculator.PrintMedianTemp();
                                         }
 
-                                        else if (UserInputCase2 == "3")//return
+                                        //Return
+                                        else if (userInputCase2 == "3")
                                         {
 
                                         }
 
-                                        else if (UserInputCase2 == "4")//exit
+                                        //Exit
+                                        else if (userInputCase2 == "4")
                                         {
-                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
+                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n" +
+                                                "***************************************************************************");
                                             bExit = true;
                                             break;
                                         }
 
-                                        else//felinput
+                                        //Felinput
+                                        else
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
@@ -128,51 +143,63 @@
                                         break;
                                     }
 
-                                case "3"://hottest/coldestday
+                                //Undermeny för den varmaste och kallaste dagen
+                                case "3":
                                     {
-                                        Console.Clear();
-                                        Console.WriteLine("1. Hottestday\n" +
-                                            "2. coldestday\n" +
-                                            "3. return to the main menu\n" +
-                                            "4. exit");
 
-                                        string UserInputCase3 = Console.ReadLine();
-                                        if (UserInputCase3 == "1")//maxtemp
+                                        Console.WriteLine("1. Hottest day\n" +
+                                            "2. Coldest day\n" +
+                                            "3. Return to the main menu\n" +
+                                            "4. Exit");
+
+                                        string userInputCase3 = Console.ReadLine();
+
+                                        //Maxtemp
+                                        if (userInputCase3 == "1")
                                         {
                                             calculator.GetMaxTemp();
                                         }
-                                        else if (UserInputCase3 == "2")//´lägsta temp
+
+                                        //Lägsta temp
+                                        else if (userInputCase3 == "2")
                                         {
                                             calculator.GetMinTemperature();
                                         }
 
-                                        else if (UserInputCase3 == "3")//return
+                                        //Return
+                                        else if (userInputCase3 == "3")
                                         {
 
                                         }
 
-                                        else if (UserInputCase3 == "4")//exit
+                                        //Exit
+                                        else if (userInputCase3 == "4")
                                         {
-                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
+                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n" +
+                                                "***************************************************************************");
                                             bExit = true;
                                             break;
                                         }
 
-                                        else//felinput
+                                        //Felinput
+                                        else
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
                                         break;
                                     }
-                                case "4"://tröskel
+
+                                //Undermeny med användarinmatning på ett tröskelvärde 
+                                case "4":
                                     {
-                                        Console.Clear();
-                                        Console.WriteLine("1. Thresholdtemp\n" +
-                                            "2. return to the main menu\n" +
-                                            "3. exit");
+                                        Console.WriteLine("1. Type a threshold tempererature\n" +
+                                            "2. Return to the main menu\n" +
+                                            "3. Exit");
                                         Console.Write("Your input:");
-                                        string UserInputCase4 = Console.ReadLine();
-                                        if (UserInputCase4 == "1")//Tröskel
+                                        string userInputCase4 = Console.ReadLine();
+
+                                        //Tröskel
+                                        if (userInputCase4 == "1")
                                         {
                                             Console.WriteLine("Enter a Temperature threshold");
                                             Console.Write("Your input:");
@@ -182,33 +209,41 @@
                                                 calculator.Tempfilter(threshold);
                                         }
 
-                                        else if (UserInputCase4 == "2")//return
+                                        //Return
+                                        else if (userInputCase4 == "2")
                                         {
-
+                                            continue;
                                         }
 
-                                        else if (UserInputCase4 == "3")//exit
+                                        //Exit
+                                        else if (userInputCase4 == "3")
                                         {
-                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
+                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n" +
+                                                "***************************************************************************");
                                             bExit = true;
                                             break;
                                         }
 
-                                        else//felinput
+                                        //Felinput
+                                        else
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
                                         break;
                                     }
-                                case "5"://spesefik dag +dagen innan och efter
+
+                                //Undermeny för specifik dag, samt dagen innan och efter
+                                case "5":
                                     {
-                                        Console.Clear();
-                                        Console.WriteLine("1. specific day\n" +
-                                            "2. return to the main menu\n" +
-                                            "3. exit");
+
+                                        Console.WriteLine("1. Type a specific day too see the temperature for that day\n" +
+                                            "2. Return to the main menu\n" +
+                                            "3. Exit");
                                         Console.Write("Your input:");
-                                        string UserInputCase5 = Console.ReadLine();
-                                        if (UserInputCase5 == "1")//Specefikdag
+                                        string userInputCase5 = Console.ReadLine();
+
+                                        //Specefikdag
+                                        if (userInputCase5 == "1")
                                         {
                                             Console.WriteLine("Enter a day in may (1-31)");
                                             Console.Write("Your input:");
@@ -218,62 +253,79 @@
                                                 calculator.GetTemperatureOfDay(day);
                                         }
 
-                                        else if (UserInputCase5 == "2")//return
+                                        //Return
+                                        else if (userInputCase5 == "2")
                                         {
 
                                         }
 
-                                        else if (UserInputCase5 == "3")//exit
+                                        //Exit
+                                        else if (userInputCase5 == "3")
                                         {
-                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
+                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n" +
+                                                "***************************************************************************");
                                             bExit = true;
                                             break;
                                         }
 
-                                        else//felinput
+                                        //Felinput
+                                        else
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
                                         break;
                                     }
-                                case "6"://mest fekventa graden 
+
+                                //Undermeny för den mest frekventa graderna
+                                case "6":
                                     {
-                                        Console.Clear();
-                                        Console.WriteLine("1. Most frequent temperature\n" +
-                                            "2. return to the main menu\n" +
-                                            "3. exit");
+
+                                        Console.WriteLine("1. Most frequent temperature(s)\n" +
+                                            "2. Return to the main menu\n" +
+                                            "3. Exit");
                                         Console.Write("Your input:");
-                                        string UserInputCase6 = Console.ReadLine();
-                                        if (UserInputCase6 == "1")//mest fekventa graden
+                                        string userInputCase6 = Console.ReadLine();
+
+                                        //Mest frekventa graden på månade
+                                        if (userInputCase6 == "1")
                                         {
                                             calculator.GetMostFrequentTemperature();
                                         }
 
-                                        else if (UserInputCase6 == "2")//return
+                                        //Return
+                                        else if (userInputCase6 == "2")
                                         {
 
                                         }
 
-                                        else if (UserInputCase6 == "3")//exit
+                                        //Exit
+                                        else if (userInputCase6 == "3")
                                         {
-                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
+                                            Console.WriteLine("Thank you for using this program, hope to see you again soon\n" +
+                                                "***************************************************************************");
                                             bExit = true;
                                             break;
                                         }
 
-                                        else//felinput
+                                        //Felinput
+                                        else
                                         {
                                             Console.WriteLine("Invalid input");
                                         }
                                         break;
                                     }
-                                case "7"://avsluta programmet
+
+                                //Avslutar programmet med hjälp av flaggan vi satte i början av while-loopen
+                                case "7":
                                     {
-                                        Console.WriteLine("Thank you for using this program, hope to see you again soon\n***************************************************************************");
-                                        bExit = true;//flagga för att lämna aplikationen 
+                                        Console.WriteLine("Thank you for using this program, hope to see you again soon\n" +
+                                            "***************************************************************************");
+                                        bExit = true;
                                         break;
                                     }
-                                default://felinput
+
+                                //Felinput
+                                default:
                                     {
                                         Console.WriteLine("Invalid input");
                                         break;
@@ -283,8 +335,8 @@
                         }
 
 
-
-                    case "2": //Avslut
+                    //Avslutar programmet
+                    case "2":
                         {
                             Console.WriteLine("Thank you for using this program, hope to see you again soon\n" +
                                 "***************************************************************************");
@@ -292,7 +344,8 @@
                             break;
                         }
 
-                    default://felinput
+                    //Felinput
+                    default:
                         {
                             Console.WriteLine("Your input was invalid try again but with nmbr");
                             break;

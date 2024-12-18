@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace Labb_3
+﻿namespace Labb_3
 {
     class TemperatureCalculator
     {
