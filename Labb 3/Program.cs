@@ -48,7 +48,7 @@
                                 case "1"://lista
                                     {
                                         Console.Clear();
-                                        calculator.Printdateandtemp();
+                                        calculator.PrintDateandTemp();
                                         Console.WriteLine("These are the temperatures in May\n" +
                                             "1. Sort it from warmest to coldest\n" +
                                             "2. Sort it from coldest to warmest\n" +
@@ -138,9 +138,9 @@
                                         {
                                             calculator.GetMaxTemp();
                                         }
-                                        else if (UserInputCase3 == "2")//´lägsta temp
+                                        else if (UserInputCase3 == "2")//lägsta temp
                                         {
-                                            calculator.GetMinTemperature();
+                                            calculator.GetMinTemp();
                                         }
 
                                         else if (UserInputCase3 == "3")//return
@@ -212,7 +212,7 @@
                                             string DayInput = Console.ReadLine();
                                             if (int.TryParse(DayInput, out int day))
 
-                                                calculator.GetTemperatureOfDay(day);
+                                                calculator.GetTempOfDay(day);
                                         }
 
                                         else if (UserInputCase5 == "2")//return
@@ -243,7 +243,7 @@
                                         string UserInputCase6 = Console.ReadLine();
                                         if (UserInputCase6 == "1")//mest fekventa graden
                                         {
-                                            calculator.GetMostFrequentTemperature();
+                                            calculator.GetMostFrequentTemp();
                                         }
 
                                         else if (UserInputCase6 == "2")//return
