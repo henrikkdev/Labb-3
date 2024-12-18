@@ -46,7 +46,6 @@ namespace Labb_3
             }
         }
 
-
         //medeltemp
         public double AverageTemp()
         {

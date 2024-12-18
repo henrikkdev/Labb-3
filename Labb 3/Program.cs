@@ -4,17 +4,20 @@
     {
         static void Main(string[] args)
         {
+
             //välkomstmeddelande
-            Console.WriteLine("***************************************************************************\n" + "Hello and welcome to the TemperatureCalculator!\n" + "***************************************************************************\n\n");
-            
+            Console.WriteLine("***************************************************************************\n" +
+                "Hello and welcome to the TemperatureCalculator!\n" +
+                "***************************************************************************\n\n");
+
             //Drar in klassen och skapar en variabel 
             TemperatureCalculator calculator = new TemperatureCalculator();
-            
+
             //Flagga när man går tillbaka eller är klar med en uträkning
             bool bExit = false;
             while (bExit == false)
-            
-           
+
+
             {
                 //Startmeny och returmeny
                 Console.WriteLine("Type 1 if you want to continue \n" +
@@ -31,16 +34,16 @@
                         {
                             Console.Clear();//rensa consolen  
                             Console.Write($"***************************************************************************\n" +
-                                $"Choose an option from the menu:\n" +
-                                $"1. Display temperatures for all days\n" +
-                                $"2. Display average and median values\n" +
-                                $"3. Find the hottest and coldest day (including date)\n" +
-                                $"4. Show days when the temperature exceeds a threshold\n" +
-                                $"5. Show specific day's temperature as well as the day before and after\n" +
-                                $"6. Show the most frequently occurring temperature in May\n" +
-                                $"7. Exit the program\n" +
-                                $"***************************************************************************\n" +
-                                $"Put your input here:");
+                                "Choose an option from the menu:\n" +
+                                "1. Display temperatures for all days\n" +
+                                "2. Display average and median values\n" +
+                                "3. Find the hottest and coldest day (including date)\n" +
+                                "4. Show days when the temperature exceeds a threshold\n" +
+                                "5. Show specific day's temperature as well as the day before and after\n" +
+                                "6. Show the most frequently occurring temperature in May\n" +
+                                "7. Exit the program\n" +
+                                "***************************************************************************\n" +
+                                "Put your input here:");
 
                             string UserInputMainMenu = Console.ReadLine();
                             switch (UserInputMainMenu)//huvudmeny switch
