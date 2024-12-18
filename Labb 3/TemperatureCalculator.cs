@@ -44,7 +44,6 @@
             }
         }
 
-
         //medeltemp
         public double GetAverageTemperature()
         {
